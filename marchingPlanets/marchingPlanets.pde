@@ -4,8 +4,8 @@
 import peasy.*;
 
 // Configuration Members (TODO: possibly replace with command line args)
-int dimension = 5;
-float isoValue = .5; 
+int dimension = 10;
+float isoValue = .4; 
 
 // Global members
 PeasyCam cam;
@@ -14,6 +14,7 @@ ArrayList<triangle> triangles = new ArrayList<triangle>();
 
 void setup() {
   // Sketch Setup
+  frameRate(30);
   size(500,500,P3D);
   noStroke();
   colorMode(RGB,1);
@@ -27,14 +28,12 @@ void setup() {
   // Program Setup
   generatePoints();
   iterate();
-    
 }
 
 void draw() {
   background(.5);
   
-  
-  //drawPoints();
+  drawPoints();
   lights();
   drawTriangles();
   

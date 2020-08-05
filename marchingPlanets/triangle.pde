@@ -7,15 +7,17 @@
   
   PShape tri;
   
-  void draw() {
+  void makeShape() {
    tri = createShape();
    tri.beginShape(TRIANGLES);
-   tri.fill(255,0,0);
+   tri.fill(180,0,0);
    tri.vertex(v1.x,v1.y,v1.z);
    tri.vertex(v2.x,v2.y,v2.z);
    tri.vertex(v3.x,v3.y,v3.z);
    tri.endShape();
-   
+  }
+  
+  void draw() {
    shape(tri,0,0);
   }
 }

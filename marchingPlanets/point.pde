@@ -31,6 +31,7 @@ void generatePoints() {
   for(int x = 0; x < dimension; x++) {
     for(int y = 0; y < dimension; y++) {
       for(int z = 0; z < dimension; z++) {
+        //float val = dist (0,0,0,10*x,10*y,10*z)
         points[x][y][z] = new point(10*x,10*y,10*z,random(0,1));
       }
     }

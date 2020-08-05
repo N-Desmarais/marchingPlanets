@@ -64,6 +64,7 @@ void polygonise(point[] cubePoints) {
     t.v1 = vertices[triTable[cubeindex][j]];
     t.v2 = vertices[triTable[cubeindex][j+1]];
     t.v3 = vertices[triTable[cubeindex][j+2]];
+    t.makeShape();
     triangles.add(t);
   }
   
