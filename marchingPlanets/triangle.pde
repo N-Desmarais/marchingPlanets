@@ -10,7 +10,7 @@
   void makeShape() {
    tri = createShape();
    tri.beginShape(TRIANGLES);
-   tri.fill(180,0,0);
+   tri.fill(v1.x/(gap*dimension),v1.y/(gap*dimension),v1.z/(gap*dimension));
    tri.vertex(v1.x,v1.y,v1.z);
    tri.vertex(v2.x,v2.y,v2.z);
    tri.vertex(v3.x,v3.y,v3.z);

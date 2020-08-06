@@ -4,8 +4,11 @@
 import peasy.*;
 
 // Configuration Members (TODO: possibly replace with command line args)
-int dimension = 10;
-float isoValue = .4; 
+int dimension = 50;
+int gap = 2;
+float noiseMultiplier = 3;
+float isoValue = 40;
+float oldIso = isoValue;
 
 // Global members
 PeasyCam cam;
@@ -21,9 +24,9 @@ void setup() {
   
   // Camera Setup
   cam = new PeasyCam(this, 100);
-  cam.setMinimumDistance(100);
+  cam.setMinimumDistance(50);
   cam.setMaximumDistance(1000);
-  cam.lookAt(10*dimension/2,10*dimension/2,10*dimension/2);
+  cam.lookAt(gap*dimension/2,gap*dimension/2,gap*dimension/2);
   
   // Program Setup
   generatePoints();
@@ -33,7 +36,7 @@ void setup() {
 void draw() {
   background(.5);
   
-  drawPoints();
+  //drawPoints();
   lights();
   drawTriangles();
   
@@ -41,21 +44,26 @@ void draw() {
   fill(0);
   text(isoValue, 0, 15);
   cam.endHUD();
+  
+  if(isoValue != oldIso) {
+   triangles.clear();
+   iterate(); 
+   oldIso = isoValue;
+  }
 }
 
 void keyPressed() {
   if(keyCode == UP) {
-    isoValue += .01;
+    isoValue += 1;
   }
   if(keyCode == DOWN) {
-    isoValue -= .01;
+    isoValue -= 1;
   }
   if(keyCode == LEFT) {
-    isoValue -= .1;
+    isoValue -= 5;
   }
   if(keyCode == RIGHT) {
-    isoValue += .1;
+    isoValue += 5;
   }
-  isoValue = constrain(isoValue, 0, 1);
   return;
 }

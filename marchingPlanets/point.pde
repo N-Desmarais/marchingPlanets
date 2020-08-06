@@ -32,7 +32,9 @@ void generatePoints() {
     for(int y = 0; y < dimension; y++) {
       for(int z = 0; z < dimension; z++) {
         //float val = dist (0,0,0,10*x,10*y,10*z)
-        points[x][y][z] = new point(10*x,10*y,10*z,random(0,1));
+        float noise = dist(gap*x,gap*y,gap*z,gap*dimension/2,gap*dimension/2,gap*dimension/2) + noise(gap*x,gap*y,gap*z) * noiseMultiplier;
+        //if(random(0,1) > .5) noise = 0 - noise;
+        points[x][y][z] = new point(gap*x,gap*y,gap*z,noise);
       }
     }
   }
