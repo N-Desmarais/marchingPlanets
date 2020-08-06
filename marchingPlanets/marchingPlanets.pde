@@ -4,10 +4,10 @@
 import peasy.*;
 
 // Configuration Members (TODO: possibly replace with command line args)
-int dimension = 50;
+int dimension = 60;
 int gap = 2;
 float noiseMultiplier = 3;
-float isoValue = 40;
+float isoValue = 50;
 float oldIso = isoValue;
 
 // Global members
